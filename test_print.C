@@ -74,5 +74,5 @@ void print_info(char *filename=NULL) {
     cout << "nbTrig : " << nbTriggers << endl;
     cout << "nbSubTrig : " << nbSubTriggers << endl;
 
-
+  }
 } // END MACRO
