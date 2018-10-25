@@ -19,7 +19,7 @@ void read_OD(char *filename=NULL) {
   if(wcsimdirenv !=  NULL){
     gSystem->Load("${WCSIMDIR}/libWCSimRoot.so");
     gSystem->Load("${WCSIMDIR}/libWCSimRoot.rootmap");
-    gSystem->Load("${WCSIMDIR}/src/WCSimRootDict_rdict.pcm");
+    // gSystem->Load("${WCSIMDIR}/src/WCSimRootDict_rdict.pcm");
   }else{
     std::cout << "Can't load WCSim ROOT dictionaries" << std::endl;
   }
