@@ -78,7 +78,7 @@ void read_PMT(char *filename=NULL) {
 
   //----------------------------
 
-  TH2D *QvsT = new TH2D("QvsT","charge vs. time", 40, 900, 1400, 40, -0.5, 15.5);
+  TH2D *QvsT = new TH2D("QvsT","charge vs. time", 40, 0, 2000, 40, -0.5, 15.5);
   QvsT->SetXTitle("time");
   QvsT->SetYTitle("charge");
 
