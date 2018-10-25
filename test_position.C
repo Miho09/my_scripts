@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void print_info(char *filename=NULL) {
+void test_position(char *filename=NULL) {
   /* A simple script to plot aspects of phototube hits
    *
    * I like to run this macro as
@@ -20,7 +20,7 @@ void print_info(char *filename=NULL) {
     //to load the shared classes to be run in root
     gSystem->Load("${WCSIMDIR}/libWCSimRoot.so");
     gSystem->Load("${WCSIMDIR}/libWCSimRoot.rootmap");
-    // gSystem->Load("${WCSIMDIR}/src/WCSimRootDict_rdict.pcm");
+    gSystem->Load("${WCSIMDIR}/src/WCSimRootDict_rdict.pcm");
   }else{
     std::cout << "Can't load WCSim ROOT dictionaries" << std::endl;
   }
@@ -53,11 +53,27 @@ void print_info(char *filename=NULL) {
   WCSimRootEvent *wcsimroothyperevent = new WCSimRootEvent();
   wcsimT->SetBranchAddress("wcsimrootevent",&wcsimroothyperevent);
 
+  TTree *wcsimGeoT = (TTree*)f-> Get("wcsimGeoT");
+  WCSimRootGeom* wcsimrootgeom = new WCSimRootGeom();
+  wcsimGeoT->SetBranchAddress("wcsimrootgeom",&wcsimroothyperevent);
+  wcsimrootgeom->GetEntry(0);
   // Force deletion to prevent memory leak when issuing multiple
   // calls to GetEvent()
   //wcsimT->GetBranch("wcsimrootevent_OD")->SetAutoDelete(kTRUE);
 
   // const long unsigned int nbEntries = wcsimT->GetEntries();
+
+  wcsimT->GetEntry(ev);
+  WCSimRootTrigger *wcsimroottrigger = wcsimroothyperevent->GetTrigger(0);
+
+  int ncherenkovdigihits = wcsimroothyperevent ->GetNcherenkovdigihits();
+
+  for (int i=0; i<ncherenkovdigihits; i++){
+    WCSimRootChernkovDigiHit *hit = (WCSimRootChernkovDigiHit*)
+      (wcsimrootevent->GetCherenkovDigiHits()->At(i));
+
+    double charge = hit->GetQ();
+  }
   const long unsigned int nbEntries = 5;
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
 
