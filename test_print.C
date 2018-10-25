@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void test_print(char *filename=NULL) {
+void print_info(char *filename=NULL) {
   /* A simple script to plot aspects of phototube hits
    *
    * I like to run this macro as
