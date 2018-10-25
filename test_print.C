@@ -20,7 +20,6 @@ void test_print(char *filename=NULL) {
     //to load the shared classes to be run in root
     gSystem->Load("${WCSIMDIR}/libWCSimRoot.so");
     gSystem->Load("${WCSIMDIR}/libWCSimRoot.rootmap");
-    gSystem->Load("${WCSIMDIR}/src/WCSimRootDict_rdict.pcm");
   }else{
     std::cout << "Can't load WCSim ROOT dictionaries" << std::endl;
   }
