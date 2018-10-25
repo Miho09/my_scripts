@@ -62,7 +62,7 @@ void read_PMT(char *filename=NULL) {
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
   //-----------------------
 
-  TH1D *PE = new TH1D("PEmult","Photoelectron multiplicty", 16,-0.5,50);
+  TH1D *PE = new TH1D("PEmult","Photoelectron multiplicty", 16,-0.5,200);
   PE->SetXTitle("Photoelectrons");
 
   TH1D *PMT_hits = new TH1D("PMT_hits","Hits vs PMT detector number", 120000,-0.5,120000-0.5);
