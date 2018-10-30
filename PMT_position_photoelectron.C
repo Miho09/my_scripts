@@ -72,7 +72,7 @@ void PMT_position_photoelectron(char *filename=NULL) {
       WCSimRootTrigger *wcsimrootevent = wcsimroothyperevent->GetTrigger(iTrig);
 
       // RAW HITS
-      int ncherenkovdigihits = wcsimroothyperevent->GetNcherenkovdigihits();
+      int ncherenkovdigihits = wcsimrootevent->GetNcherenkovdigihits();
         for (int i = 0; i < ncherenkovdigihits; i++){
           WCSimRootCherenkovDigiHit *hit = (WCSimRootCherenkovDigiHit*)wcsimrootevent->GetCherenkovDigiHits()->At(i);
 
