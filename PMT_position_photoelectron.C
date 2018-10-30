@@ -54,9 +54,9 @@ void PMT_position_photoelectron(char *filename=NULL) {
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
   //-----------------------
 
-  TH2D *QvsY = new TH2D("QvsY","charge vs. Y coordinate", 100, -1, 1, 100, -0.5, 15.5);
-  QvsY->SetXTitle("Y coordinate of PMT");
-  QvsY->SetYTitle("charge");
+  TH2D *YvsQ = new TH2D("QvsY","charge vs. Y coordinate", 100, -0.5, 15.5, 100, -1, 1);
+  YvsQ->SetYTitle("Y coordinate of PMT");
+  YvsQ->SetXTitle("charge");
 
   const long unsigned int nbEntries = wcsimT->GetEntries();
 
@@ -81,7 +81,7 @@ void PMT_position_photoelectron(char *filename=NULL) {
           WCSimRootPMT pmt = wcsimrootgeom->GetPMT(tubeId);
           double pmtY = pmt.GetPosition(1);
 
-          QvsY->Fill(pmtY, charge);
+          YvsQ->Fill(charge, pmtY);
           } // END FOR RAW HITS
 
     } // END FOR iTRIG
@@ -91,6 +91,6 @@ void PMT_position_photoelectron(char *filename=NULL) {
 
     TH1 *temp;
     TCanvas *c1 = new TCanvas("c1","c1", 600, 600);
-    QvsY->Draw("colz");
+    YvsQ->Draw("colz");
 
   }
