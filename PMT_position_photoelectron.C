@@ -91,6 +91,6 @@ void PMT_position_photoelectron(char *filename=NULL) {
 
     TH1 *temp;
     TCanvas *c1 = new TCanvas("c1","c1", 600, 600);
-    QvsT->Draw("colz");
+    QvsY->Draw("colz");
 
   }
