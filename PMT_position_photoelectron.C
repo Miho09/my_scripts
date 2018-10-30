@@ -51,16 +51,16 @@ void PMT_position_photoelectron(char *filename=NULL) {
 
   //--------------------------
   // As you can see, there are lots of ways to get the number of hits.
-  cout << "Number of tube hits " << wcsimrootevent->GetNumTubesHit() << endl;
-  cout << "Number of Cherenkov tube hits " << wcsimrootevent->GetNcherenkovhits() << endl;
-  cout << "Number of Cherenkov tube hits " << wcsimrootevent->GetCherenkovHits()->GetEntries() << endl;
+  cout << "Number of tube hits " << wcsimroothyperevent->GetNumTubesHit() << endl;
+  cout << "Number of Cherenkov tube hits " << wcsimroothyperevent->GetNcherenkovhits() << endl;
+  cout << "Number of Cherenkov tube hits " << wcsimroothyperevent->GetCherenkovHits()->GetEntries() << endl;
 
-  cout << "Number of digitized tube hits " << wcsimrootevent->GetNumDigiTubesHit() << endl;
-  cout << "Number of digitized Cherenkov tube hits " << wcsimrootevent->GetNcherenkovdigihits() << endl;
-  cout << "Number of digitized Cherenkov tube hits " << wcsimrootevent->GetCherenkovDigiHits()->GetEntries() << endl;
+  cout << "Number of digitized tube hits " << wcsimroothyperevent->GetNumDigiTubesHit() << endl;
+  cout << "Number of digitized Cherenkov tube hits " << wcsimroothyperevent->GetNcherenkovdigihits() << endl;
+  cout << "Number of digitized Cherenkov tube hits " << wcsimroothyperevent->GetCherenkovDigiHits()->GetEntries() << endl;
 
-  cout << "Number of photoelectron hit times " << wcsimrootevent->GetCherenkovHitTimes()->GetEntries() << endl;
-  cout << "Number of photoelectron hit times " << wcsimrootevent->GetCherenkovHitTimes()->GetEntries() << endl;
+  cout << "Number of photoelectron hit times " << wcsimroothyperevent->GetCherenkovHitTimes()->GetEntries() << endl;
+  cout << "Number of photoelectron hit times " << wcsimroothyperevent->GetCherenkovHitTimes()->GetEntries() << endl;
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
   //-----------------------
 
