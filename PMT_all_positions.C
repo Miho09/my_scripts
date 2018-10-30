@@ -83,7 +83,8 @@ void PMT_all_positions(char *filename=NULL) {
       // RAW HITS
       int ncherenkovdigihits = wcsimrootevent->GetNcherenkovdigihits();
         for (int i = 0; i < ncherenkovdigihits; i++){
-          WCSimRootCherenkovDigiHit *hit = (WCSimRootCherenkovDigiHit*)wcsimrootevent->GetCherenkovDigiHits()->At(i);
+          WCSimRootCherenkovDigiHit *hit = (WCSimRootCherenkovDigiHit*)
+          (wcsimrootevent->GetCherenkovDigiHits()->At(i));
 
           double charge = hit->GetQ();
           int tubeId = hit -> GetTubeId();
