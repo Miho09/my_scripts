@@ -42,7 +42,7 @@ void PMT_position_photoelectron(char *filename=NULL) {
 
   WCSimRootGeom *wcsimrootgeom = new WCSimRootGeom();
   wcsimGeoT->SetBranchAddress("wcsimrootgeom",&wcsimrootgeom);
-  wcsimrootgeom->GetEntry(0);
+  // wcsimrootgeom->GetEntry(0);
 
   // Force deletion to prevent memory leak when issuing multiple
   // calls to GetEvent()
