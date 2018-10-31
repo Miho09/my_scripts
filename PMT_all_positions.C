@@ -90,13 +90,13 @@ void PMT_all_positions(char *filename=NULL) {
 
           double charge = hit->GetQ();
           int tubeId = hit -> GetTubeId();
-          cout << "Tube ID: " << tubeId << endl;
+          // cout << "Tube ID: " << tubeId << endl;
           WCSimRootPMT pmt = wcsimrootgeom->GetPMT(tubeId);
           double pmtX = pmt.GetPosition(0);
           double pmtY = pmt.GetPosition(1);
           double pmtZ = pmt.GetPosition(2);
 
-          // cout << "Y value: " << pmtY << endl;
+          cout << "Y value: " << pmtY << endl;
 
           XvsQ->Fill(charge, pmtX);
           YvsQ->Fill(charge, pmtY);
