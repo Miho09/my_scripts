@@ -56,15 +56,15 @@ void PMT_all_positions(char *filename=NULL) {
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
   //-----------------------
 
-  TH2D *YvsQ = new TH2D("QvsY","Y coordinate vs. charge", 100, -0.5, 15.5, 100, -1, 1);
+  TH2D *YvsQ = new TH2D("QvsY","Y coordinate vs. charge", 100, -0.5, 15.5, 1000, -4000, 4000);
   YvsQ->SetYTitle("Y coordinate of PMT");
   YvsQ->SetXTitle("charge");
 
-  TH2D *XvsQ = new TH2D("QvsX","X coordinate vs. charge", 100, -0.5, 15.5, 100, -1, 1);
+  TH2D *XvsQ = new TH2D("QvsX","X coordinate vs. charge", 100, -0.5, 15.5, 1000, -4000, 4000);
   XvsQ->SetYTitle("X coordinate of PMT");
   XvsQ->SetXTitle("charge");
 
-  TH2D *ZvsQ = new TH2D("QvsZ","Z coordinate vs. charge", 100, -0.5, 15.5, 100, -1, 1);
+  TH2D *ZvsQ = new TH2D("QvsZ","Z coordinate vs. charge", 100, -0.5, 15.5, 1000, -4000, 4000);
   ZvsQ->SetYTitle("Z coordinate of PMT");
   ZvsQ->SetXTitle("charge");
 
