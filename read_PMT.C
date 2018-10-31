@@ -104,13 +104,13 @@ void read_PMT(char *filename=NULL) {
     temp=QvsT->ProjectionY();
     temp->SetTitle("charge");
     temp->Draw();
-    c1->GetPad(2)->SetLogy();
+    // c1->GetPad(2)->SetLogy();
 
     c1->cd(3);
     temp=QvsT->ProjectionX();
     temp->SetTitle("hits vs time");
     temp->Draw();
-    c1->GetPad(3)->SetLogy();
+    // c1->GetPad(3)->SetLogy();
 
     c1->cd(4);
     temp=QvsT->ProfileX();
