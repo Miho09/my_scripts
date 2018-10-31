@@ -44,7 +44,7 @@ void read_OD(char *filename=NULL) {
   TTree  *wcsimT = (TTree*)f->Get("wcsimT");
 
   WCSimRootEvent *wcsimrootsuperevent = new WCSimRootEvent();
-  wcsimT->SetBranchAddress("wcsimrootevent_OD",&wcsimrootsuperevent);
+  wcsimT->SetBranchAddress("wcsimrootevent",&wcsimrootsuperevent);
 
   const long unsigned int nbEntries = wcsimT->GetEntries();
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
