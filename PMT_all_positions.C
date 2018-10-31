@@ -43,8 +43,8 @@ void PMT_all_positions(char *filename=NULL) {
   WCSimRootGeom *wcsimrootgeom = 0;
   wcsimGeoT->SetBranchAddress("wcsimrootgeom",&wcsimrootgeom);
   cout << "wcsimrootgeom value: " << wcsimrootgeom << endl;
-  cout << "getentry: " << wcsimrootgeom->GetEntries() << endl;
-  wcsimrootgeom->GetEntry(0);
+  cout << "getentry: " << wcsimGeoT->GetEntries() << endl;
+  wcsimGeoT->GetEntry(0);
 
   // Force deletion to prevent memory leak when issuing multiple
   // calls to GetEvent()
