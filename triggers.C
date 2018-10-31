@@ -54,7 +54,7 @@ void triggers(char *filename=NULL) {
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
   //-----------------------
 
-  TH2D *TrigvsEvent = new TH2D("TrigvsEvent","Number of Triggers vs. Events", 100, 0, 15, 10, 0, 30);
+  TH2D *TrigvsEvent = new TH2D("TrigvsEvent","Number of Triggers vs. Events", 10, 0, 10, 10, 0, 7);
   TrigvsEvent->SetYTitle("Number of Triggers");
   TrigvsEvent->SetXTitle("Event Number");
 
@@ -63,7 +63,7 @@ void triggers(char *filename=NULL) {
   for(long unsigned int iEntry = 0; iEntry < nbEntries; iEntry++){
     // Point to event iEntry inside WCSimTree
     wcsimT->GetEvent(iEntry);
-    cout << "iEntry " << iEntry << endl;
+    // cout << "iEntry " << iEntry << endl;
     // Nb of Trigger inside the event
     const unsigned int nbTriggers = wcsimroothyperevent->GetNumberOfEvents();
     const unsigned int nbSubTriggers = wcsimroothyperevent->GetNumberOfSubEvents();
