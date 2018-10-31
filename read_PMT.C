@@ -120,6 +120,6 @@ void read_PMT(char *filename=NULL) {
     c1->cd(5);
     temp=PE;
     temp->Draw();
-    c1->GetPad(5)->SetLogy();
+    // c1->GetPad(5)->SetLogy();
 
   }
