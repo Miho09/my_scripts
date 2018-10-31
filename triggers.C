@@ -67,8 +67,8 @@ void triggers(char *filename=NULL) {
     // Nb of Trigger inside the event
     const unsigned int nbTriggers = wcsimroothyperevent->GetNumberOfEvents();
     const unsigned int nbSubTriggers = wcsimroothyperevent->GetNumberOfSubEvents();
-    cout << "GetNumberofEvents" << nbTriggers << endl;
-    cout << "GetNumberOfSubEvents" << nbSubTriggers << endl;
+    cout << "GetNumberofEvents " << nbTriggers << endl;
+    cout << "GetNumberOfSubEvents " << nbSubTriggers << endl;
 
     for(long unsigned int iTrig = 0; iTrig < nbTriggers; iTrig++){
       WCSimRootTrigger *wcsimrootevent = wcsimroothyperevent->GetTrigger(iTrig);
