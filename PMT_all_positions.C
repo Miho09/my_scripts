@@ -42,8 +42,8 @@ void PMT_all_positions(char *filename=NULL) {
 
   WCSimRootGeom *wcsimrootgeom = 0;
   wcsimGeoT->SetBranchAddress("wcsimrootgeom",&wcsimrootgeom);
-  cout << "wcsimrootgeom value: " << wcsimrootgeom << endl;
-  cout << "getentry: " << wcsimGeoT->GetEntries() << endl;
+  // cout << "wcsimrootgeom value: " << wcsimrootgeom << endl;
+  // cout << "getentry: " << wcsimGeoT->GetEntries() << endl;
   wcsimGeoT->GetEntry(0);
 
   // Force deletion to prevent memory leak when issuing multiple
@@ -67,6 +67,11 @@ void PMT_all_positions(char *filename=NULL) {
   TH2D *ZvsQ = new TH2D("QvsZ","Z coordinate vs. charge", 100, -0.5, 15.5, 1000, -4000, 4000);
   ZvsQ->SetYTitle("Z coordinate of PMT");
   ZvsQ->SetXTitle("charge");
+
+  TH2D *YvsX = new TH2D("YvsX","Y coordinate vs. X coordinate", 100, -0.5, 15.5, 1000, -4000, 4000);
+  YvsX->SetYTitle("Y coordinate of PMT");
+  YvsX->SetXTitle("X coordinate of PMT");
+
 
 
   const long unsigned int nbEntries = wcsimT->GetEntries();
@@ -96,7 +101,7 @@ void PMT_all_positions(char *filename=NULL) {
           double pmtY = pmt.GetPosition(1);
           double pmtZ = pmt.GetPosition(2);
 
-          cout << "Y value: " << pmtY << endl;
+          // cout << "Y value: " << pmtY << endl;
 
           XvsQ->Fill(charge, pmtX);
           YvsQ->Fill(charge, pmtY);
@@ -122,6 +127,9 @@ void PMT_all_positions(char *filename=NULL) {
 
     c1->cd(3);
     ZvsQ->Draw("colz");
+
+    c1->cd(3);
+    YvsX->Draw("colz");
 
 
   }
