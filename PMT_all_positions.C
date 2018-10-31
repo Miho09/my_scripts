@@ -12,6 +12,8 @@ void PMT_all_positions(char *filename=NULL) {
    * $ root -l -x 'read_PMT.C("../wcsim.root")'
    */
 
+
+
   gROOT->Reset();
   char* wcsimdirenv;
   wcsimdirenv = getenv ("WCSIMDIR");
@@ -73,7 +75,17 @@ void PMT_all_positions(char *filename=NULL) {
   YvsX->SetYTitle("Y coordinate of PMT");
   YvsX->SetXTitle("X coordinate of PMT");
 
+//ben added
 
+TFile benfile("test.root","RECREATE");
+TTree bentree("data","data");
+
+float x,y,z,q,t;
+bentree.Branch("x",&x,"x/F");
+bentree.Branch("y",&y,"y/F");
+bentree.Branch("z",&z,"z/F");
+bentree.Branch("q",&q,"q/F");
+bentree.Branch("t",&t,"t/F");
 
   const long unsigned int nbEntries = wcsimT->GetEntries();
 
@@ -102,6 +114,13 @@ void PMT_all_positions(char *filename=NULL) {
           double pmtY = pmt.GetPosition(1);
           double pmtZ = pmt.GetPosition(2);
 
+          x=pmtX;
+          y=pmtY;
+          z=pmtZ;
+          q=charge;
+
+          bentree.Fill();
+
           // cout << "Y value: " << pmtY << endl;
 
           XvsQ->Fill(charge, pmtX);
@@ -114,6 +133,8 @@ void PMT_all_positions(char *filename=NULL) {
 
   } // END FOR iENTRY
 
+bentree.Write();
+benfile.Close();
 
   TH1 *temp;
     float win_scale=0.75;
