@@ -54,7 +54,7 @@ void PMT_position_photoelectron(char *filename=NULL) {
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
   //-----------------------
 
-  TH2D *YvsQ = new TH2D("QvsY","charge vs. Y coordinate", 100, -0.5, 15.5, 100, -1, 1);
+  TH2D *YvsQ = new TH2D("QvsY","Y coordinate vs. charge", 100, -0.5, 15.5, 100, -1, 1);
   YvsQ->SetYTitle("Y coordinate of PMT");
   YvsQ->SetXTitle("charge");
 
@@ -90,7 +90,7 @@ void PMT_position_photoelectron(char *filename=NULL) {
 
 
     TH1 *temp;
-    TCanvas *c1 = new TCanvas("c1","c1", 600, 600);
+    TCanvas *c1 = new TCanvas("c1","c1", 700, 700);
     YvsQ->Draw("colz");
 
   }
