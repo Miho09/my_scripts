@@ -68,7 +68,7 @@ void PMT_all_positions(char *filename=NULL) {
   ZvsQ->SetYTitle("Z coordinate of PMT");
   ZvsQ->SetXTitle("charge");
 
-  TH2D *YvsX = new TH2D("YvsX","Y coordinate vs. X coordinate", 100, -0.5, 15.5, 1000, -4000, 4000);
+  TH2D *YvsX = new TH2D("YvsX","Y coordinate vs. X coordinate", 1000, -4000, 4000, 1000, -4000, 4000);
   YvsX->SetYTitle("Y coordinate of PMT");
   YvsX->SetXTitle("X coordinate of PMT");
 
