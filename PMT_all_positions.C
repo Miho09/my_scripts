@@ -106,6 +106,7 @@ void PMT_all_positions(char *filename=NULL) {
           XvsQ->Fill(charge, pmtX);
           YvsQ->Fill(charge, pmtY);
           ZvsQ->Fill(charge, pmtZ);
+          YvsX->Fill(pmtX, pmtY);
           } // END FOR RAW HITS
 
     } // END FOR iTRIG
@@ -128,7 +129,7 @@ void PMT_all_positions(char *filename=NULL) {
     c1->cd(3);
     ZvsQ->Draw("colz");
 
-    c1->cd(3);
+    c1->cd(4);
     YvsX->Draw("colz");
 
 
