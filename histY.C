@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void PMT_all_positions(char *filename=NULL) {
+void PMT_position_photoelectron(char *filename=NULL) {
   /* A simple script to plot aspects of phototube hits
    * This code is rather cavalier; I should be checking return values, etc.
    * First revision 6-24-10 David Webber
@@ -38,13 +38,11 @@ void PMT_all_positions(char *filename=NULL) {
   WCSimRootEvent *wcsimroothyperevent = new WCSimRootEvent();
   wcsimT->SetBranchAddress("wcsimrootevent",&wcsimroothyperevent);
 
-  TTree  *wcsimGeoT = (TTree*) f->Get("wcsimGeoT");
+  TTree  *wcsimGeoT = f->Get("wcsimGeoT");
 
-  WCSimRootGeom *wcsimrootgeom = 0;
+  WCSimRootGeom *wcsimrootgeom = new WCSimRootGeom();
   wcsimGeoT->SetBranchAddress("wcsimrootgeom",&wcsimrootgeom);
-  // cout << "wcsimrootgeom value: " << wcsimrootgeom << endl;
-  // cout << "getentry: " << wcsimGeoT->GetEntries() << endl;
-  wcsimGeoT->GetEntry(0);
+  // wcsimrootgeom->GetEntry(0);
 
   // Force deletion to prevent memory leak when issuing multiple
   // calls to GetEvent()
@@ -56,24 +54,9 @@ void PMT_all_positions(char *filename=NULL) {
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
   //-----------------------
 
-  TH2D *YvsQ = new TH2D("QvsY","Y coordinate vs. charge", 100, -0.5, 15.5, 1000, -4000, 4000);
+  TH2D *YvsQ = new TH2D("QvsY","Y coordinate vs. charge", 100, -0.5, 15.5, 100, -1, 1);
   YvsQ->SetYTitle("Y coordinate of PMT");
-  graph.GetYaxis()->SetTitleOffset(1.4);
   YvsQ->SetXTitle("charge");
-
-  TH2D *XvsQ = new TH2D("QvsX","X coordinate vs. charge", 100, -0.5, 15.5, 1000, -4000, 4000);
-  XvsQ->SetYTitle("X coordinate of PMT");
-  XvsQ->SetXTitle("charge");
-
-  TH2D *ZvsQ = new TH2D("QvsZ","Z coordinate vs. charge", 100, -0.5, 15.5, 1000, -4000, 4000);
-  ZvsQ->SetYTitle("Z coordinate of PMT");
-  ZvsQ->SetXTitle("charge");
-
-  TH2D *YvsX = new TH2D("YvsX","Y coordinate vs. X coordinate", 1000, -4000, 4000, 1000, -4000, 4000);
-  YvsX->SetYTitle("Y coordinate of PMT");
-  YvsX->SetXTitle("X coordinate of PMT");
-
-
 
   const long unsigned int nbEntries = wcsimT->GetEntries();
 
@@ -91,23 +74,14 @@ void PMT_all_positions(char *filename=NULL) {
       // RAW HITS
       int ncherenkovdigihits = wcsimrootevent->GetNcherenkovdigihits();
         for (int i = 0; i < ncherenkovdigihits; i++){
-          WCSimRootCherenkovDigiHit *hit = (WCSimRootCherenkovDigiHit*)
-          (wcsimrootevent->GetCherenkovDigiHits()->At(i));
+          WCSimRootCherenkovDigiHit *hit = (WCSimRootCherenkovDigiHit*)wcsimrootevent->GetCherenkovDigiHits()->At(i);
 
           double charge = hit->GetQ();
           int tubeId = hit -> GetTubeId();
-          // cout << "Tube ID: " << tubeId << endl;
           WCSimRootPMT pmt = wcsimrootgeom->GetPMT(tubeId);
-          double pmtX = pmt.GetPosition(0);
           double pmtY = pmt.GetPosition(1);
-          double pmtZ = pmt.GetPosition(2);
 
-          // cout << "Y value: " << pmtY << endl;
-
-          XvsQ->Fill(charge, pmtX);
           YvsQ->Fill(charge, pmtY);
-          ZvsQ->Fill(charge, pmtZ);
-          YvsX->Fill(pmtX, pmtY);
           } // END FOR RAW HITS
 
     } // END FOR iTRIG
@@ -115,23 +89,8 @@ void PMT_all_positions(char *filename=NULL) {
   } // END FOR iENTRY
 
 
-  TH1 *temp;
-    float win_scale=0.75;
-    int n_wide=2;
-    int n_high=2;
-    TCanvas *c1 = new TCanvas("c1","c1",800*n_wide*win_scale,800*n_high*win_scale);
-    c1->Divide(n_wide,n_high);
-    c1->cd(1);
+    TH1 *temp;
+    TCanvas *c1 = new TCanvas("c1","c1", 700, 700);
     YvsQ->Draw("colz");
-
-    c1->cd(2);
-    XvsQ->Draw("colz");
-
-    c1->cd(3);
-    ZvsQ->Draw("colz");
-
-    c1->cd(4);
-    YvsX->Draw("colz");
-
 
   }

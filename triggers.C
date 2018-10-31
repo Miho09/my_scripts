@@ -54,9 +54,9 @@ void triggers(char *filename=NULL) {
   cout << "Nb of entries " << wcsimT->GetEntries() << endl;
   //-----------------------
 
-  TCanvas *TrigvsEvent = new TCanvas("c1","c1",200,10,500,300);
-  TrigvsEvent->SetYTitle("Number of Triggers");
-  TrigvsEvent->SetXTitle("Event Number");
+  // TCanvas *TrigvsEvent = new TCanvas("c1","c1",200,10,500,300);
+  // TrigvsEvent->SetYTitle("Number of Triggers");
+  // TrigvsEvent->SetXTitle("Event Number");
 
 
   // TH2D *TrigvsEvent = new TH2D("TrigvsEvent","Number of Triggers vs. Events", 10, 0, 10, 10, 0, 5);
@@ -68,13 +68,13 @@ void triggers(char *filename=NULL) {
   for(long unsigned int iEntry = 0; iEntry < nbEntries; iEntry++){
     // Point to event iEntry inside WCSimTree
     wcsimT->GetEvent(iEntry);
-    // cout << "iEntry " << iEntry << endl;
+    cout << "iEntry " << iEntry << endl;
     // Nb of Trigger inside the event
     const unsigned int nbTriggers = wcsimroothyperevent->GetNumberOfEvents();
     const unsigned int nbSubTriggers = wcsimroothyperevent->GetNumberOfSubEvents();
-    // cout << "GetNumberofEvents " << nbTriggers << endl;
-    // cout << "GetNumberOfSubEvents " << nbSubTriggers << endl;
-    TGraph* gr = new TGraph(10,iEntry,nbTriggers);
+    cout << "GetNumberofEvents " << nbTriggers << endl;
+    cout << "GetNumberOfSubEvents " << nbSubTriggers << endl;
+    // TGraph* gr = new TGraph(10,iEntry,nbTriggers);
 
     // TrigvsEvent->Fill(iEntry, nbTriggers);
     // for(long unsigned int iTrig = 0; iTrig < nbTriggers; iTrig++){
@@ -87,7 +87,7 @@ void triggers(char *filename=NULL) {
 
   } // END FOR iENTRY
 
-  gr->Draw("AC*");
+  // gr->Draw("AC*");
 
 
   }
