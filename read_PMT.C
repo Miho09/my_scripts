@@ -42,7 +42,7 @@ void read_PMT(char *filename=NULL) {
   // calls to GetEvent()
   wcsimT->GetBranch("wcsimrootevent")->SetAutoDelete(kTRUE);
 
-  wcsimT->GetEvent(0);
+  wcsimT->GetEvent(3);
 
   // Currently only looks at one event.  I suspect you could loop over more events, if they existed.
   WCSimRootTrigger *wcsimrootevent = wcsimrootsuperevent->GetTrigger(0);
