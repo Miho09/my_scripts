@@ -118,7 +118,7 @@ void PMT_all_positions(char *filename=NULL) {
     float win_scale=0.75;
     int n_wide=2;
     int n_high=2;
-    TCanvas *c1 = new TCanvas("c1","c1",700*n_wide*win_scale,700*n_high*win_scale);
+    TCanvas *c1 = new TCanvas("c1","c1",800*n_wide*win_scale,800*n_high*win_scale);
     c1->Divide(n_wide,n_high);
     c1->cd(1);
     YvsQ->Draw("colz");
