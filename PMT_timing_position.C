@@ -172,7 +172,7 @@ mihofile.Close();
     c1->cd(4);
     YvsX->Draw("colz");
 
-    c1->cmiho);
+    c1->cd(5);
     temp=QvsT->ProfileX();
     temp->SetTitle("average charge vs time");
     temp->Draw();
