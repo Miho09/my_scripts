@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void PMT_all_positions(char *filename=NULL) {
+void PMT_timing_positions(char *filename=NULL) {
   /* A simple script to plot aspects of phototube hits
    * This code is rather cavalier; I should be checking return values, etc.
    * First revision 6-24-10 David Webber
@@ -160,19 +160,23 @@ mihofile.Close();
     int n_high=3;
     TCanvas *c1 = new TCanvas("c1","c1",800*n_wide*win_scale,800*n_high*win_scale);
     c1->Divide(n_wide,n_high);
+
     c1->cd(1);
-    YvsQ->Draw("colz");
+    QvsT->Draw("colz");
 
     c1->cd(2);
-    XvsQ->Draw("colz");
+    YvsQ->Draw("colz");
 
     c1->cd(3);
-    ZvsQ->Draw("colz");
+    XvsQ->Draw("colz");
 
     c1->cd(4);
-    YvsX->Draw("colz");
+    ZvsQ->Draw("colz");
 
     c1->cd(5);
+    YvsX->Draw("colz");
+
+    c1->cd(6);
     temp=QvsT->ProfileX();
     temp->SetTitle("average charge vs time");
     temp->Draw();
