@@ -115,9 +115,13 @@ mihotree.Branch("t",&t,"t/F");
           WCSimRootCherenkovDigiHit *hit = (WCSimRootCherenkovDigiHit*)
           (wcsimrootevent->GetCherenkovDigiHits()->At(i));
       //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
-            QvsT->Fill(hit->GetT(), hit->GetQ());
             // WCSimRootCherenkovHitTime *cHitTime = wcsimrootevent->GetCherenkovHitTimes()->At(i);
             //WCSimRootCherenkovHitTime has methods GetTubeId(), GetTruetime()
+
+            WCSimRootCherenkovDigiHit *cDigiHit = wcsimrootevent->GetCherenkovDigiHits()->At(i);
+            //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
+            QvsT->Fill(cDigiHit->GetT(), cDigiHit->GetQ());
+
           }
 
 
