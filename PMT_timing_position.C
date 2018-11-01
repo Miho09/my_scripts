@@ -161,23 +161,23 @@ mihofile.Close();
   TH1 *temp;
     float win_scale=0.75;
     int n_wide=2;
-    int n_high=3;
+    int n_high=2;
     TCanvas *c1 = new TCanvas("c1","c1",800*n_wide*win_scale,800*n_high*win_scale);
     c1->Divide(n_wide,n_high);
 
-    c1->cd(1);
-    QvsT->Draw("colz");
+    // c1->cd(1);
+    // QvsT->Draw("colz");
 
-    c1->cd(2);
+    c1->cd(1);
     YvsQ->Draw("colz");
 
-    c1->cd(3);
+    c1->cd(2);
     XvsQ->Draw("colz");
 
-    c1->cd(4);
+    c1->cd(3);
     ZvsQ->Draw("colz");
 
-    c1->cd(5);
+    c1->cd(4);
     YvsX->Draw("colz");
 
     // c1->cd(6);
