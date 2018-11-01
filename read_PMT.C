@@ -42,7 +42,7 @@ void read_PMT(char *filename=NULL) {
   // calls to GetEvent()
   wcsimT->GetBranch("wcsimrootevent")->SetAutoDelete(kTRUE);
 
-  int event_num
+  int event_num;
   cout << "Please enter a value between 0 to 9: " << endl;
   cin >> event_num;
   wcsimT->GetEvent(event_num);
