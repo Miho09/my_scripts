@@ -180,10 +180,10 @@ mihofile.Close();
     c1->cd(5);
     YvsX->Draw("colz");
 
-    c1->cd(6);
-    temp=QvsT->ProfileX();
-    temp->SetTitle("average charge vs time");
-    temp->Draw();
+    // c1->cd(6);
+    // temp=QvsT->ProfileX();
+    // temp->SetTitle("average charge vs time");
+    // temp->Draw();
 
 
 
