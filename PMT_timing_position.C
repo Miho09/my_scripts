@@ -122,7 +122,11 @@ mihotree.Branch("t",&t,"t/F");
             //WCSimRootChernkovDigiHit has methods GetTubeId(), GetT(), GetQ()
             QvsT->Fill(cDigiHit->GetT(), cDigiHit->GetQ());
 
+<<<<<<< HEAD
 
+=======
+//          }
+>>>>>>> eff0dd05c9cdb0f805085cc0abbda69db1d616cd
 
 
           double charge = hit->GetQ();
