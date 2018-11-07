@@ -47,7 +47,7 @@ void read_PMT_modified(char *filename=NULL) {
   cout << "error 2" << endl;
 
   // Currently only looks at one event.  I suspect you could loop over more events, if they existed.
-  WCSimRootTrigger *wcsimrootevent = wcsimrootsuperevent->GetTrigger(event_num);
+  WCSimRootTrigger *wcsimrootevent = wcsimrootsuperevent->GetTrigger(0);
   cout << "error 3" << endl;
 
   //--------------------------
