@@ -34,10 +34,8 @@ void read_PMT_modified(char *filename=NULL) {
   }
 
   TTree  *wcsimT = f->Get("wcsimT");
-
   WCSimRootEvent *wcsimrootsuperevent = new WCSimRootEvent();
   wcsimT->SetBranchAddress("wcsimrootevent",&wcsimrootsuperevent);
-  cout << "error 1" << endl;
   // Force deletion to prevent memory leak when issuing multiple
   // calls to GetEvent()
   wcsimT->GetBranch("wcsimrootevent")->SetAutoDelete(kTRUE);
