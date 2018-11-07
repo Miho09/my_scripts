@@ -89,7 +89,8 @@ void PMT_timing_position_per_event(char *filename=NULL) {
 TFile mihofile("test.root","RECREATE");
 TTree mihotree("data","data");
 
-float x,y,z,q,t, evt;
+float x,y,z,q,t;
+int evt;
 mihotree.Branch("x",&x,"x/F");
 mihotree.Branch("y",&y,"y/F");
 mihotree.Branch("z",&z,"z/F");
