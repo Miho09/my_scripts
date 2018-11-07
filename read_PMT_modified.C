@@ -37,7 +37,7 @@ void read_PMT_modified(char *filename=NULL) {
 
   WCSimRootEvent *wcsimrootsuperevent = new WCSimRootEvent();
   wcsimT->SetBranchAddress("wcsimrootevent",&wcsimrootsuperevent);
-
+  cout << "error 1" << endl;
   // Force deletion to prevent memory leak when issuing multiple
   // calls to GetEvent()
   wcsimT->GetBranch("wcsimrootevent")->SetAutoDelete(kTRUE);
@@ -46,9 +46,11 @@ void read_PMT_modified(char *filename=NULL) {
   cout << "Please enter a value between 0 to 9: " << endl;
   cin >> event_num;
   wcsimT->GetEvent(event_num);
+  cout << "error 2" << endl;
 
   // Currently only looks at one event.  I suspect you could loop over more events, if they existed.
   WCSimRootTrigger *wcsimrootevent = wcsimrootsuperevent->GetTrigger(event_num);
+  cout << "error 3" << endl;
 
   //--------------------------
   // As you can see, there are lots of ways to get the number of hits.
