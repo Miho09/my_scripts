@@ -90,7 +90,7 @@ TFile mihofile("test.root","RECREATE");
 TTree mihotree("data","data");
 
 float x,y,z,q,t;
-int evt;
+long unsigned int evt;
 mihotree.Branch("x",&x,"x/F");
 mihotree.Branch("y",&y,"y/F");
 mihotree.Branch("z",&z,"z/F");
