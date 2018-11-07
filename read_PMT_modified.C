@@ -44,11 +44,9 @@ void read_PMT_modified(char *filename=NULL) {
   cout << "Please enter a value between 0 to 9: " << endl;
   cin >> event_num;
   wcsimT->GetEvent(event_num);
-  cout << "error 2" << endl;
 
   // Currently only looks at one event.  I suspect you could loop over more events, if they existed.
   WCSimRootTrigger *wcsimrootevent = wcsimrootsuperevent->GetTrigger(0);
-  cout << "error 3" << endl;
 
   //--------------------------
   // As you can see, there are lots of ways to get the number of hits.
@@ -97,9 +95,7 @@ void read_PMT_modified(char *filename=NULL) {
 
   TH1 *temp;
 
-    TPaveLabel *title = new TPaveLabel(0.1,0.94,0.9,0.98,
-                   "Drawing options for one dimensional histograms");
-
+  
     float win_scale=0.75;
     int n_wide=2;
     int n_high=2;
