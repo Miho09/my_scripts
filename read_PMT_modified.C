@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void read_PMT(char *filename=NULL) {
+void read_PMT_modified(char *filename=NULL) {
   /* A simple script to plot aspects of phototube hits
    * This code is rather cavalier; I should be checking return values, etc.
    * First revision 6-24-10 David Webber
